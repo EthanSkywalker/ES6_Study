@@ -4,11 +4,24 @@
 - 제너레이터: 이터레이터이자 이터러블을 생성하는 함수
 
 <script>
-  function* gen() {
+  // 제너레이터는 * 일반 함수에 * 을 붙여 만든다. 제너레이터는 이터레이터를 반환한다.
+  // 제너레이터를 통해 쉽게 이터레이터를 만들 수 있다.
+  // yield 통해서 값을 만들 수 있다.
+  // 제너레이터에 return 을 줄 수 있다.
+  // 순회 할 값을 문장으로 표현
+
+
+  // 문장을 값으로 만들수 있고 문장을 통하여 순회할 수 있는 값을 만들 수 있기때문에
+  // 어떠한 상태나 어떠한 값을 순회할 수 있게 만들 수 있다는 것을 의미한다.
+
+  function* gen() { 
     yield 1;
-    if (false) yield 2;
+    if (false) yield 2; // 문장
     yield 3;
+    return 100
   }
+
+
 
   let iter = gen();
   log(iter[Symbol.iterator]() == iter);
@@ -24,6 +37,7 @@
 # odds
 
 <script>
+  // 무한수열 표현 next() 하면 1씩 증가한 값이 나온다.
   function* infinity(i = 0) {
     while (true) yield i++;
   }
